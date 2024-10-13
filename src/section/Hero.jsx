@@ -9,6 +9,8 @@ import Target from "../components/Target.jsx";
 import ReactLogo from "../components/ReactLogo.jsx";
 import Cube from "../components/Cube.jsx";
 import Ring from "../components/Ring.jsx";
+import HeroCamera from "../components/HeroCamera.jsx";
+import Button from "../components/Button.jsx";
 
 const Hero = () => {
 
@@ -32,8 +34,10 @@ const Hero = () => {
                         {/* To hide controller */}
                         <PerspectiveCamera makeDefault position={[0, 0, 25]}/>
 
-                            <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition}
-                                        rotation={[0.1, -Math.PI, 0]}/>
+                            <HeroCamera isMobile={isMobile}>
+                                <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition}
+                                            rotation={[0.1, -Math.PI, 0]}/>
+                            </HeroCamera>
 
                         <group>
                             <Target position={sizes.targetPosition}/>
@@ -46,6 +50,12 @@ const Hero = () => {
                         <directionalLight position={[10, 10, 10]} intensity={0.5}/>
                     </Suspense>
                 </Canvas>
+
+                <div className='absolute bottom-6 left-0 right-0 w-full z-10 c-space '>
+                    <a href="#contact" className='w-fit'>
+                        <Button name="Let's work Together" isBeam containerClass="sm:w-fit w-full sm:min-w-96"></Button>
+                    </a>
+                </div>
             </div>
 
 
